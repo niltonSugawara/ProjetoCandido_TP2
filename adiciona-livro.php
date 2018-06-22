@@ -30,7 +30,7 @@
 		} else {
 		$msg = mysqli_error($conexao);
 	?>
-	<p class="alert-danger">O livro <? = $nome; ?> não foi adicionado: <?= $msg ?></p>
+	<p class="alert-danger">O livro <?= $titulo; ?> não foi adicionado: <?= $msg ?></p>
 	<?php
 		}
 	?>
