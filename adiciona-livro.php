@@ -31,6 +31,7 @@
 		$msg = mysqli_error($conexao);
 	?>
 	<p class="alert-danger">O livro <?= $titulo; ?> não foi adicionado: <?= $msg ?></p>
+
 	<?php
 		}
 	?>
