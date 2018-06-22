@@ -1,13 +1,13 @@
 <?php
 function listaLivro($conexao) {
-    $produtos = array();
+    $livros = array();
     $resultado = mysqli_query($conexao, "select p.*, c.nome as categoria_nome from livro as p join categoria as c on p.categoria_id = c.id");
 
-    while($produto = mysqli_fetch_assoc($resultado)) {
-        array_push($produtos, $produto);
+    while($livro = mysqli_fetch_assoc($resultado)) {
+        array_push($livros, $livro);
     }
 
-    return $produtos;
+    return $livros;
 }
 
 function insereLivro($conexao, $titulo, $autor, $edicao, $exemplar, $qtExemplar, $descricao, $categoria_id){
@@ -22,6 +22,12 @@ function removeLivro($conexao, $id) {
 
 function buscaLivro($conexao, $id) {
     $query = "select * from livro where id = {$id}";
+    $resultado = mysqli_query($conexao, $query);
+    return mysqli_fetch_assoc($resultado);
+}
+
+function buscaLivroParametro($conexao, $parametro) {
+    $query = "select * from livro where upper(titulo) like '%{$parametro}%'";
     $resultado = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($resultado);
 }

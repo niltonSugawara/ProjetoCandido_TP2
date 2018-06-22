@@ -7,7 +7,12 @@
 <?php } ?>
 
 <table class="table table-striped table-bordered">
-
+	<tr>
+        <td>Título</td>
+        <td>Autor</td>
+		<td>Edição</td>
+	    <td>Categoria</td>
+    </tr>
     <?php
         $livros = listaLivro($conexao);
         foreach($livros as $livro) :
@@ -20,8 +25,8 @@
 		<td>
 			<a class="btn btn-primary" href="livro-altera-formulario.php?id=<?=$livro['id']?>">alterar</a>
         <td>
-            <form action="remove-produto.php" method="post">
-				<input type="hidden" name="id" value="<?=$produto['id']?>" />
+            <form action="remove-livro.php" method="post">
+				<input type="hidden" name="id" value="<?=$livro['id']?>" />
 				<button class="btn btn-danger">remover</button>
 			</form>
         </td>
